@@ -74,9 +74,7 @@ func printNames(){
 
 func bookTickets(firstName string, lastName string, email string,remainingNumberOfTickets int, numberOfTicketsBooked int){
 	remainingNumberOfTickets -= numberOfTicketsBooked
-
 	fmt.Printf("\n\n%v %v booked %v tickets.\nYou will receive a confirmation email at %v.\nThank You\n",firstName,lastName,numberOfTicketsBooked,email)
 	fmt.Printf("%v tickets left.\n",remainingNumberOfTickets)
-
 	bookings = append(bookings, firstName+" "+lastName)
 }
