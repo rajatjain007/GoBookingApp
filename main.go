@@ -1,9 +1,11 @@
 package main
 
 import (
+	inputValidation "GoBookingApp/helper"
 	"fmt"
 	"strings"
 )
+
 
 var appName  = "GoBookingApp"
 const totalNumberOfTickets = 50
@@ -17,7 +19,7 @@ func main(){
 	for i := 0; i < 50; i++ {
 		firstName,lastName ,email,numberOfTicketsToBeBooked := input()
 
-		isValidName,isValidEmail,isValidNumberOfTickets := inputValidation(firstName,lastName,email,numberOfTicketsToBeBooked)
+		isValidName,isValidEmail,isValidNumberOfTickets := inputValidation.InputValidation(firstName,lastName,email,numberOfTicketsToBeBooked,remainingNumberOfTickets)
 		if(isValidName && isValidEmail && isValidNumberOfTickets){
 			bookTickets(firstName,lastName,email,remainingNumberOfTickets,numberOfTicketsToBeBooked)
 			printNames()
@@ -33,11 +35,7 @@ func main(){
 				fmt.Println("Invalid number of tickets")
 			}		
 		}
-
-		
-
-		
-			
+	
 	}
 }
 
@@ -62,16 +60,6 @@ func input()(string,string,string,int){
 	fmt.Scan(&numberOfTicketsBooked)
 
 	return firstName,lastName,email,numberOfTicketsBooked
-}
-
-func inputValidation(firstName string, lastName string, email string, numberOfTicketsToBeBooked int) (bool,bool,bool){
-	
-	isValidName := len(firstName) >= 2 && len(lastName) >= 2
-	isValidEmail := strings.Contains(email,"@")
-	isValidNumberOfTickets := numberOfTicketsToBeBooked > 0 && numberOfTicketsToBeBooked<remainingNumberOfTickets
-
-	return isValidName,isValidEmail,isValidNumberOfTickets
-
 }
 
 func printNames(){
