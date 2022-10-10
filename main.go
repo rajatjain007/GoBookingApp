@@ -106,7 +106,7 @@ func sendTicket(firstName string,lastName string,email string, numberOfTickets i
 	time.Sleep(10*time.Second)
 	var ticket = fmt.Sprintf("%v tickets for %v %v",numberOfTickets,firstName,lastName)
 	fmt.Println("#################")
-	fmt.Printf("Sending ticket: \n %v \n to emai; %v\n",ticket,email)
+	fmt.Printf("Sending ticket: \n %v \n to email: %v\n",ticket,email)
 	fmt.Println("#################")
 	wg.Done()
 }
